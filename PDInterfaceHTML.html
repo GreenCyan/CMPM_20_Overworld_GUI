@@ -1,0 +1,155 @@
+<!----------- "LAYING OUT" ALL THE ELEMENTS THAT WILL APPEAR AS WELL AS THEIR HIERACHY RELATIVE TO EACH OTHER ------->
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>new_file</title>
+		<meta name="author" content="jy" />
+		
+		
+
+		<!-- Date: 2015-02-10 -->
+	</head>
+	<body>
+
+
+
+		<!--everything within a parent div set to relative. gameCanvas should act as boundary-->
+		<div id="gameCanvas" class = "html">
+		
+		<!------------------	<div id = "workspace">
+				<!--icons that will toggle pop ups-->
+				<div id = "toolbar" class="noselect">
+					<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
+					<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
+				</div>
+			
+		
+			
+			
+				<!--window pop ups with exit buttons-->		
+				<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
+					<img id="messageX" onclick="popup('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>	
+				
+				<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
+					<img id="terminalX" onclick="popup('terminalPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>
+				
+				<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
+					<img id="targetX" onclick="popup('targetPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>	
+				
+				
+				
+				
+		<!------------------------- </div> 
+		
+		
+			<!-- side email display -->
+			
+			<div id = "sidebar" class = "noselect">		
+				<a name = "default"></a>
+					<div class = "page">
+						<div class = "email" id = "0" onclick= "console.log('clickedfirst'),window.location='#10',targetIndex('0');"></div>		
+						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1');"></div>
+						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2');"></div>		
+						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3');"></div>
+						<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4');"></div>		
+						<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5');"></div>
+					</div>
+				
+				<a name ="10"></a>
+					<div class = "page" id = "10"> 
+						<a href = #default>back</a><br>
+
+
+					</div>
+				<a name ="11"></a>
+					<div class = "page" id = "11">
+						<a href = #default>back</a><br>
+			
+					</div>
+				<a name ="12"></a>
+					<div class = "page" id = "12">
+						<a href = #default>back</a><br>
+					
+					</div>						
+				<a name ="13"></a>
+					<div class = "page" id = "13">
+						<a href = #default>back</a><br>
+				
+					</div>
+				<a name ="14"></a>
+					<div class = "page" id = "14">
+						<a href = #default>back</a><br>
+				
+					</div>
+				<a name ="15"></a>
+					<div class = "page" id = "15">
+						<a href = #default>back</a><br>
+					
+					</div>
+	
+			</div>
+	
+	
+	
+	<!-------------------------------------------------------------------------------------------------------------
+		
+		
+		
+			
+			this current code just unhides an element of x size.. i want to make hidden pages like on the practice site (mAKE THE EMAILS A PAGE TOO)
+			
+			<div id ="sidebar">
+							
+				<div class = "email" id = "e1" onclick="openEmail('e0', 'emailFillBar')"></div>		
+				<div class = "email" id = "e2" onclick="openEmail('e1', 'emailFillBar')"></div>
+				<div class = "email" id = "e3" onclick="openEmail('e2', 'emailFillBar')"></div>
+				<div class = "email" id = "e4" onclick="openEmail('e3', 'emailFillBar')"></div>		
+				<div class = "email" id = "e5" onclick="openEmail('e4', 'emailFillBar')"></div>
+				<div class = "email" id = "e6" onclick="openEmail('e5', 'emailFillBar')"></div>
+				<div class = "email" id = "e7" onclick="openEmail('e6', 'emailFillBar')"></div>
+		
+			
+		
+				<div id="emailFillBar" style="display:none">	
+					<img id="emailX" onclick="popup('emailFillBar')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>
+			
+			</div>
+	---------------------------------------------------------------------------------------------------------------->
+			
+	
+	</div>
+
+	</body>
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="PDInterfaceJS.js"></script>		
+<link rel="stylesheet" type="text/css" href="PDInterfaceCSS.css">
+
+<!------------------------------------------- bootstrap stuff------------------------------------------------------------ 
+
+ <!-- Latest compiled and minified CSS
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+<!-- Latest compiled JavaScript
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+------------------------------------------------------------------------------------------------------------------------->
+
+</html>
+

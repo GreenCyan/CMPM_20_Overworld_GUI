@@ -1,0 +1,200 @@
+/******** STYLIZING ALL THE ELEMENTS. POSITIONAL STUFF, STYLE PROPERTIES, ETC*************/
+
+/********* THIS SHOULD BE THE BOUNDARIES OF THE GAME *********/
+#gameCanvas {
+    position: relative;
+    margin: auto;
+    border: 1px solid #000;
+    width: 1000px;
+    height: 600px;   
+}
+
+
+
+/*basically makes it so you cant highlight stuff*/
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+
+/*
+
+#workspace {
+    position: absolute;
+    height: 740px;
+    width:1000px;
+    left:400px;
+    border: 1px solid #000;
+}
+*/
+
+
+/*the bar at the bottom of the screen with the icons*/
+
+#toolbar {
+    z-index: 1000;
+    background:#fff;
+    position: absolute;   
+    width: 670px;
+    height: 60px;
+    top:540px;
+    border: 1px solid #000;
+    left:330px;
+}
+
+.icons {
+
+}
+
+
+/********* MESSAGE AND ITS PROPERTIES **************************/
+#messageIcon {
+    position:absolute;
+    width:95px;
+    height:50px;
+    left:30px;
+    top:10px;
+}
+
+
+#messagePopUp {
+    position:absolute;
+    background: #eee;
+    width:400px;
+    height:400px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+    z-index:50;
+    /*z-index: 9002;*/
+}
+
+#messagePopUp:hover {
+    cursor: pointer;
+}
+
+#messageX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+
+/********* TERMINAL AND ITS PROPERTIES *********************/
+#terminalIcon {
+    position:absolute;
+    width:50px;
+    height:40px;
+    left: 140px;
+    top:10px;
+}
+
+
+#terminalPopUp {
+    position:absolute;
+    background: #eee;
+    width:600px;
+    height:200px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+       	z-index:50;
+    /*z-index: 9002;    */
+}
+
+
+
+#terminalPopUp:hover {
+    cursor: pointer;
+}
+
+
+
+#terminalX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+/**********TARGET POPUP***********************/
+
+
+#targetPopUp {
+    position:absolute;
+    background: #eee;
+    width:200px;
+    height:450px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+   	z-index:50;
+}
+
+
+
+#targetPopUp:hover {
+    cursor: pointer;
+}
+
+
+
+#targetX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+
+
+
+/********* EMAIL SIDEBAR *********************/
+
+#sidebar {
+    position: relative;
+    width: 329px;
+    height: 325px;   
+    top: 275px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.email {
+    border: 1px solid #000;
+    position: relative;
+    height:80px;
+    width:290px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.page {
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    height: 100%;
+    width: 310px;
+    border: 1px solid #000;
+    font-family: "courier new";
+    text-align: justify;
+}
+
+
+/*.popUp {
+    position: absolute;
+    font-family: "courier new";
+    z-index:10;
+}*/
