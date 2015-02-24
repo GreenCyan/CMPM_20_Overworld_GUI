@@ -14,13 +14,12 @@
 		<title>new_file</title>
 		<meta name="author" content="jy" />
 		
-		
+		<script src="brine.js"></script>
+		<!--script src="brine-dev.js"></script>
 
 		<!-- Date: 2015-02-10 -->
 	</head>
 	<body>
-
-
 
 		<!--everything within a parent div set to relative. gameCanvas should act as boundary-->
 		<div id="gameCanvas" class = "html">
@@ -30,6 +29,22 @@
 				<div id = "toolbar" class="noselect">
 					<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
 					<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
+					<div id = "cdiv">
+						<canvas id="canvas" width = "170" height = "60">
+    						You shouldn't see this.
+	  					</canvas>
+						<script src="clock.js"></script>
+						<script>
+							use2D = true;
+							var dayClock = new Clock(300,1260,null);
+							dayClock.fontSize = 30;
+							dayClock.x = 75;
+							dayClock.y = 15;
+							dayClock.startClock();
+							world.addChild(dayClock);
+							initGame('canvas');
+						</script>
+					</div>
 				</div>
 			
 		

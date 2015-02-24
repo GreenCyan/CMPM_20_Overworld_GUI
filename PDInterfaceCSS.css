@@ -47,7 +47,15 @@
     top:540px;
     border: 1px solid #000;
     left:330px;
-}
+   }
+   
+   #cdiv {
+		position: relative;
+		left: 500px;
+		
+	}
+
+
 
 .icons {
 
