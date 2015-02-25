@@ -42,7 +42,7 @@
     z-index: 1000;
     background:#fff;
     position: absolute;   
-    width: 670px;
+    width: 669px;
     height: 60px;
     top:540px;
     border: 1px solid #000;
@@ -51,8 +51,11 @@
    
    #cdiv {
 		position: relative;
+		top: -1px;
+		width: 168px;
+		height: 60px;
 		left: 500px;
-		
+		border: 1px solid #000;
 	}
 
 
