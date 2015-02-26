@@ -26,7 +26,7 @@ function HackStart(difficulty) {
 			this.boxType.y = 230;
 			world.addChild(this.boxType);
 			
-			this.countDown = new Clock(10, 0, this.end);
+			this.countDown = new Clock(10, 0, this, this.end);
 			this.countDown.fontSize = 50;
 			this.countDown.x = 100;
 			this.countDown.y = 300;
@@ -41,7 +41,7 @@ function HackStart(difficulty) {
 			enemyStats.end();
 			string = "";
 			hackBool = false;
-			//this.countDown.remove();	ERROR HERE
+			this.countDown.remove();
 		}
 	};
 	Hack.init();
