@@ -25,13 +25,13 @@ function HackStart(difficulty) {
 			this.boxType = new TextBox("YOOO");
 			this.boxType.fontSize = 50;
 			this.boxType.x = 0;
-			this.boxType.y = 250;
+			this.boxType.y = 230;
 			world.addChild(this.boxType);
 			
 			this.countDown = new Clock(10, 0, this.end);
 			this.countDown.fontSize = 50;
 			this.countDown.x = 100;
-			this.countDown.y = 325;
+			this.countDown.y = 300;
 			this.countDown.startClock();
 			world.addChild(this.countDown);
 		},

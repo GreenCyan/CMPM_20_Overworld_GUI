@@ -121,7 +121,6 @@
        	z-index:50;
     /*z-index: 9002;    */
 }
-
 	#hackDiv {
 		position: absolute;
 		top: 100px;
@@ -129,7 +128,7 @@
 		width: 600px;
 		height: 400px;
 	}
-
+	
 #terminalPopUp:hover {
     cursor: pointer;
 }

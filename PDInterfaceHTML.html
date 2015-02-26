@@ -13,17 +13,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>new_file</title>
 		<meta name="author" content="jy" />
-		
+	
 		<script src="brine.js"></script>
 		<script src="clock.js"></script>
-		<!--script src="brine-dev.js"></script>
 
 		<!-- Date: 2015-02-10 -->
 	</head>
 	<body>
 
 		<!--everything within a parent div set to relative. gameCanvas should act as boundary-->
-		<div id="gameCanvas" class = "html">
+		<div id="gameCanvas" class = "html,noselect">
 		
 		<!------------------	<div id = "workspace">
 				<!--icons that will toggle pop ups-->
@@ -52,34 +51,24 @@
 			
 				<!--window pop ups with exit buttons-->		
 				<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
-					<img id="messageX" onclick="popup('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+					<img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+					
+					<input id="input" type="text" style="font:courier" maxlength="30">
+					<input type="button" id="btn" value="Search" onclick="saveInput();">
+					
 				</div>	
 				
 				<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
-					<img id="terminalX" onclick="popup('terminalPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
 					<div id="hackDiv">
-						<canvas id="hackCanvas" width = "600" height = "400">
-    						You shouldn't see this.
-	  					</canvas>
-	  					<!--script src="Hack_Stats.js"></script>
-						<script src="hacking_number_generator.js"></script>
-						<script src="Click.js"></script-->
-						<script>
-							use2D = true;
-							var testClock = new Clock(300,1260,null);
-							testClock.fontSize = 30;
-							testClock.x = 75;
-							testClock.y = 15;
-							testClock.startClock();
-							world.addChild(testClock);
-							initGame('hackCanvas');
-						</script>
+						<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe>
 					</div>
+					<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+
 				</div>
 				
 				<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
-					<img id="targetX" onclick="popup('targetPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
-				</div>	
+					<img id="targetX" onclick="toggle('targetPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>
 				
 				
 				
@@ -92,7 +81,7 @@
 			<div id = "sidebar" class = "noselect">		
 				<a name = "default"></a>
 					<div class = "page">
-						<div class = "email" id = "0" onclick= "console.log('clickedfirst'),window.location='#10',targetIndex('0');"></div>		
+						<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0');"></div>		
 						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1');"></div>
 						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2');"></div>		
 						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3');"></div>
@@ -102,33 +91,35 @@
 				
 				<a name ="10"></a>
 					<div class = "page" id = "10"> 
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						
+						<!--<a href = #default>back</a><br>-->
 
 
 					</div>
 				<a name ="11"></a>
 					<div class = "page" id = "11">
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 			
 					</div>
 				<a name ="12"></a>
 					<div class = "page" id = "12">
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 					
 					</div>						
 				<a name ="13"></a>
 					<div class = "page" id = "13">
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 				
 					</div>
 				<a name ="14"></a>
 					<div class = "page" id = "14">
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 				
 					</div>
 				<a name ="15"></a>
 					<div class = "page" id = "15">
-						<a href = #default>back</a><br>
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 					
 					</div>
 	
