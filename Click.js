@@ -1,5 +1,4 @@
 use2D = true;
-initGame("hackCanvas");
 							
 /*************************************************************/
 /* this function can be ignored as it is just for testing */

@@ -17,44 +17,43 @@ function toggle(window) {
 		
 	} else {
 		el.style.display = 'none';
-		attachmentCounter = 0;
 	
 	}
 		
 }
 
-
-function openEmail(ID, window) {
-	var el = document.getElementById(window);
-	if (el.style.display == 'none') {
-		el.style.display = 'block';
-	}	
-}
-
-
-
 function popup(window) {
-	toggle(window);		
+	if (window != 'targetPopUp')	
+		toggle(window);		
+	else 
+		downloadAttachment(window);
 }
 
+function closeAttachment() {
+	console.log('close the fuckin popup');
+	var el = document.getElementById('targetPopUp');
+	if (el.style.display == 'block') {
+		el.style.display = 'none';
+	}
+}
 
 //************** special toggle code that dictates how attachment windows are toggled *************************************
 //(because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)
 
 var attachmentCounter = 0;
 function downloadAttachment(window) {
-	if (attachmentCounter != 1) {
 	
-		attachmentCounter += 1;
-		var el = document.getElementById(window);
-		if (el.style.display == 'none') {
-			el.style.display = 'block';
-		} else {
-			el.style.display = 'none';
-		}
-			
+	attachmentCounter += 1;
+	var el = document.getElementById(window);
+	if (el.style.display == 'none') {
+		console.log("shouldappend now");
+		targetWindow.appendChild(targetPro);
+		
+		el.style.display = 'block';
+	} else {
+		el.style.display = 'none';
 	}
-	
+			
 }
 
 
@@ -164,6 +163,7 @@ function changeZIndex(id) {
 	      
 	    default:
 	        console.log("default");
+	        break;
 	}
 
 
@@ -209,28 +209,6 @@ function appendToTerminalWindow(){
 }
 
 
-
-
-
-var targetPro = document.createElement("p");
-var targetWindow = document.getElementById('targetPopUp');
-
-function appendToTargetWindow(index, targetArray) {
-	/*targetContent = document.createTextNode(targetArray[1].name);
-	targetPro.appendChild(targetContent);
-	targetWindow.appendChild(targetProa);*/
-	console.log("right before targetArray[index]should print");
-	console.log(index);
-	
-	
-	targetPro.remove();
-	targetPro = document.createElement("p");
-	targetContent = document.createTextNode(targetArray[index].name);
-	targetPro.appendChild(targetContent);
-	targetWindow.appendChild(targetPro);
-	
-}
-
 var people1d = [];
 people1d.push(new Person("Alisia", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("jill", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
@@ -251,7 +229,6 @@ function Person(name, diff, occ, netWorth, IP, image) {
 	this.diff = diff;
 	this.occ = occ;
 	this.netWorth = netWorth;
-	this.IP = IP;
 	this.image = image;
 
 }
@@ -355,3 +332,147 @@ function targetIndex(index) {
 }
 
 //appendToTargetWindow(people1d);
+
+var targetPro = document.createElement("p");
+var targetWindow = document.getElementById('targetPopUp');
+
+function appendToTargetWindow(index, targetArray) {
+
+    var targetName = document.createTextNode(targetArray[index].name);
+    var targetDifficulty = document.createTextNode(targetArray[index].diff);
+    var targetOccupation = document.createTextNode(targetArray[index].occ);
+    var targetNetworth = document.createTextNode(targetArray[index].netWorth);
+    var targetImage = document.createTextNode(targetArray[index].image);
+
+
+
+	/*targetContent = document.createTextNode(targetArray[1].name);
+	targetPro.appendChild(targetContent);
+	targetWindow.appendChild(targetProa);*/
+	console.log("right before targetArray[index]should print");
+	console.log(index);
+	
+	
+	targetPro.remove();
+	targetPro = document.createElement("p");
+	
+	
+	targetPro.appendChild(targetName);
+	targetPro.appendChild(document.createElement("br"));
+	targetPro.appendChild(targetDifficulty);
+	targetPro.appendChild(document.createElement("br"));
+	targetPro.appendChild(targetOccupation);
+	targetPro.appendChild(document.createElement("br"));
+	targetPro.appendChild(targetNetworth);
+	targetPro.appendChild(document.createElement("br"));
+	targetPro.appendChild(targetImage);
+	targetPro.appendChild(document.createElement("br"));
+
+
+	
+	console.log("target content is: " +targetArray[index].name);
+	
+	//targetWindow.appendChild(targetPro);
+	
+}
+
+/*****************database search*******************************
+array of people with fields
+search in format and returns field*/
+
+var databaseArray = [];
+var databaseArray2 = [];
+var result;
+var current;
+
+
+var input1;
+var input2;
+var searchElement = document.getElementById('input');
+
+function saveInput() {
+
+	var inputString = searchElement.value;
+	var inputArray = inputString.split(" ");
+	for (i = 0; i < databaseArray2.length; i++) {
+		databaseArray2.pop();
+	}
+	console.log("you just searched for: "+searchElement.value);
+	input1 = inputArray[0];
+	input2 = inputArray[1];
+	console.log("var input1 is: " + input1);
+	console.log("var input2 is: " + input2);
+	
+	searchDatabase(input1, input2);
+}
+
+
+
+function searchDatabase(input1, input2) {
+	// go through array of everything in database, pull out matching first names into new array
+
+
+
+	for (i = 0; i < databaseArray.length; i++) {
+		if (input1 == databaseArray[i].firstName) {
+			current = databaseArray[i];
+
+			databaseArray2.push(new database(current.firstName, current.lastName, current.birthday, current.age,
+			current.spouse, current.children, current.address));
+			
+			console.log("pushed "+current.firstName +" "+ current.lastName +" into databaseArray2");
+		
+		}
+	}
+	
+	
+	// search new array matching last names, store found person in var result
+
+
+	if (databaseArray2.length >= 1) {
+		for (i = 0; i < databaseArray2.length; i++){
+			console.log("databaseArray2.length is: "+databaseArray2.length);
+			console.log("input2 = "+input2+"  & last name in database is "+databaseArray2[i].lastName);
+			if (input2 == databaseArray2[i].lastName) {
+				result = databaseArray2[i];
+				console.log("search result is found.");
+				console.log("result is: "+result.firstName+ " " + result.lastName);
+				return;
+			}
+		}
+		
+	}	else {
+			console.log("does not exist");
+			return;
+		
+	}
+	
+		console.log("does not exist");	
+}
+
+
+
+
+
+
+function database (a,b,c,d,e,f,g) {
+	 this.firstName = a;
+	 this.lastName = b;
+	 this.birthday = c;
+	 this.age = d;
+	 this.spouse = e;
+	 this.children = f;
+	 this.address = g;
+}
+
+
+
+
+databaseArray.push(new database("homerun", "hitler", "December 4th, 1972", "maria", "none", "11 street, city, country"));
+databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "Phoenix Wright", "kidz", "77 street, city, country"));
+databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "Phoenix Wright", "kidz", "77 street, city, country"));
+
+
+
+
+
