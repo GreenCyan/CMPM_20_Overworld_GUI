@@ -1,7 +1,5 @@
 //this line is for test only, comment it out later
 
-//currentStats = new gameHackStats();
-
 var INC_RATIO = 1.15;
 var MIN_INC = 10;
 var DEDUCT_VAR = 0.05;
