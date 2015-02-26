@@ -15,6 +15,7 @@
 		<meta name="author" content="jy" />
 		
 		<script src="brine.js"></script>
+		<script src="clock.js"></script>
 		<!--script src="brine-dev.js"></script>
 
 		<!-- Date: 2015-02-10 -->
@@ -33,7 +34,6 @@
 						<canvas id="canvas" width = "168" height = "60">
     						You shouldn't see this.
 	  					</canvas>
-						<script src="clock.js"></script>
 						<script>
 							use2D = true;
 							var dayClock = new Clock(300,1260,null);
@@ -57,6 +57,24 @@
 				
 				<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
 					<img id="terminalX" onclick="popup('terminalPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+					<div id="hackDiv">
+						<canvas id="hackCanvas" width = "600" height = "400">
+    						You shouldn't see this.
+	  					</canvas>
+	  					<!--script src="Hack_Stats.js"></script>
+						<script src="hacking_number_generator.js"></script>
+						<script src="Click.js"></script-->
+						<script>
+							use2D = true;
+							var testClock = new Clock(300,1260,null);
+							testClock.fontSize = 30;
+							testClock.x = 75;
+							testClock.y = 15;
+							testClock.startClock();
+							world.addChild(testClock);
+							initGame('hackCanvas');
+						</script>
+					</div>
 				</div>
 				
 				<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
