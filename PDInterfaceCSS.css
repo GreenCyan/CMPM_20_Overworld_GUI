@@ -84,6 +84,7 @@
     margin-left:330px;
     font-family: "courier new";
     z-index:50;
+    overflow: hidden;
     /*z-index: 9002;*/
 }
 
@@ -208,6 +209,13 @@
     text-align: justify;
 }
 
+.search {
+	overflow: auto;
+    background: #eee;
+	width : 100%;
+	height: 100%;
+	position: relative;
+}
 
 /*.popUp {
     position: absolute;

@@ -51,10 +51,24 @@
 			
 				<!--window pop ups with exit buttons-->		
 				<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
-					<img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
 					
-					<input id="input" type="text" style="font:courier" maxlength="30">
-					<input type="button" id="btn" value="Search" onclick="saveInput();">
+					<a name = "searchBox"></a>		
+					<div class = "search" id = "searchBox">
+						<img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+											
+						<input id="input" type="text" style="font:courier" maxlength="30">
+						<input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
+						</div>
+					
+					<a name = "searchResult"></a>
+					<div class = "search" id = "searchResult">
+						<img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				
+					<!-- TEMP!!! --> <br><br>
+				
+						<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						
+					</div>
 					
 				</div>	
 				
@@ -123,36 +137,7 @@
 					
 					</div>
 	
-			</div>
-	
-	
-	
-	<!-------------------------------------------------------------------------------------------------------------
-		
-		
-		
-			
-			this current code just unhides an element of x size.. i want to make hidden pages like on the practice site (mAKE THE EMAILS A PAGE TOO)
-			
-			<div id ="sidebar">
-							
-				<div class = "email" id = "e1" onclick="openEmail('e0', 'emailFillBar')"></div>		
-				<div class = "email" id = "e2" onclick="openEmail('e1', 'emailFillBar')"></div>
-				<div class = "email" id = "e3" onclick="openEmail('e2', 'emailFillBar')"></div>
-				<div class = "email" id = "e4" onclick="openEmail('e3', 'emailFillBar')"></div>		
-				<div class = "email" id = "e5" onclick="openEmail('e4', 'emailFillBar')"></div>
-				<div class = "email" id = "e6" onclick="openEmail('e5', 'emailFillBar')"></div>
-				<div class = "email" id = "e7" onclick="openEmail('e6', 'emailFillBar')"></div>
-		
-			
-		
-				<div id="emailFillBar" style="display:none">	
-					<img id="emailX" onclick="popup('emailFillBar')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
-				</div>
-			
-			</div>
-	---------------------------------------------------------------------------------------------------------------->
-			
+			</div>			
 	
 	</div>
 

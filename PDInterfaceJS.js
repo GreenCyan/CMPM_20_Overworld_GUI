@@ -213,7 +213,9 @@ var people1d = [];
 people1d.push(new Person("Alisia", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("jill", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-
+people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 
 var people2d = [];
 
@@ -411,10 +413,8 @@ function saveInput() {
 function searchDatabase(input1, input2) {
 	// go through array of everything in database, pull out matching first names into new array
 
-
-
 	for (i = 0; i < databaseArray.length; i++) {
-		if (input1 == databaseArray[i].firstName) {
+		if (input1.toUpperCase() == (databaseArray[i].firstName).toUpperCase()) {
 			current = databaseArray[i];
 
 			databaseArray2.push(new database(current.firstName, current.lastName, current.birthday, current.age,
@@ -433,26 +433,84 @@ function searchDatabase(input1, input2) {
 		for (i = 0; i < databaseArray2.length; i++){
 			console.log("databaseArray2.length is: "+databaseArray2.length);
 			console.log("input2 = "+input2+"  & last name in database is "+databaseArray2[i].lastName);
-			if (input2 == databaseArray2[i].lastName) {
+			if (input2.toUpperCase() == (databaseArray2[i].lastName).toUpperCase()) {
 				result = databaseArray2[i];
 				console.log("search result is found.");
 				console.log("result is: "+result.firstName+ " " + result.lastName);
+				
+				appendToSearch(result);
 				return;
 			}
 		}
 		
 	}	else {
-			console.log("does not exist");
+			doesNotExist();
 			return;
 		
 	}
 	
-		console.log("does not exist");	
+	console.log("does not exist");
+	doesNotExist();
 }
 
 
+var noResult;
+
+function doesNotExist() {
+	console.log("does not exist");
+	var doesNotExist = document.createTextNode("Search did not yield any results.");
+	var searchResult = document.getElementById('searchResult');
+	
+	
+	noResult = document.createElement("p");
+	noResult.appendChild(doesNotExist);
+	searchResult.appendChild(noResult);
+
+}
+
+var resultInfo;
 
 
+function appendToSearch(result) {
+	console.log("appendtosearch() called")
+	var resultName = document.createTextNode(result.firstName +" "+result.lastName);
+    var resultBirthday = document.createTextNode(result.birthday);
+    var resultAge = document.createTextNode(result.age);
+    var resultSpouse = document.createTextNode(result.spouse);
+    var resultChildren = document.createTextNode(result.children);
+	var resultAddress = document.createTextNode(result.address);
+	var searchResult = document.getElementById('searchResult');
+	
+	
+	//resultInfo.remove();
+	resultInfo = document.createElement("p");
+	
+	
+	resultInfo.appendChild(resultName);
+	resultInfo.appendChild(document.createElement("br"));
+	resultInfo.appendChild(resultBirthday);
+	resultInfo.appendChild(document.createElement("br"));
+	resultInfo.appendChild(resultAge);
+	resultInfo.appendChild(document.createElement("br"));
+	resultInfo.appendChild(resultSpouse);
+	resultInfo.appendChild(document.createElement("br"));
+	resultInfo.appendChild(resultChildren);
+	resultInfo.appendChild(document.createElement("br"));
+	resultInfo.appendChild(resultAddress);
+	resultInfo.appendChild(document.createElement("br"));
+
+	searchResult.appendChild(resultInfo);
+}
+
+
+function clearResults() {
+	resultInfo.remove();
+}
+
+
+function clearNoResults() {
+	noResult.remove();
+}
 
 
 function database (a,b,c,d,e,f,g) {
@@ -464,7 +522,6 @@ function database (a,b,c,d,e,f,g) {
 	 this.children = f;
 	 this.address = g;
 }
-
 
 
 
