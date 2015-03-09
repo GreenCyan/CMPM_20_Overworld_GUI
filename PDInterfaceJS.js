@@ -472,7 +472,7 @@ var resultInfo;
 
 
 function appendToSearch(result) {
-	console.log("appendtosearch() called")
+	console.log("appendtosearch() called");
 	var resultName = document.createTextNode(result.firstName +" "+result.lastName);
     var resultBirthday = document.createTextNode(result.birthday);
     var resultAge = document.createTextNode(result.age);
